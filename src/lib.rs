@@ -2,16 +2,18 @@ use axum::Router;
 use axum::routing::get;
 use axum::serve::Serve;
 use sqlx::PgPool;
+use tokio::net::TcpListener;
 use tower_http::trace::TraceLayer;
+
 use crate::routes::health_check::health_check;
 
 pub mod configuration;
 mod routes;
 
 pub fn run_server(
-    tcp_listener:  tokio::net::TcpListener,
-    connection_pool : PgPool
-) -> Serve<Router, Router> {
+    tcp_listener: TcpListener,
+    connection_pool: PgPool,
+) -> Serve<TcpListener, Router, Router> {
     let app = Router::new()
         .route("/health_check", get(health_check))
         .layer(TraceLayer::new_for_http())

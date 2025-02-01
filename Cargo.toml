@@ -12,7 +12,7 @@ path = "src/lib.rs"
 
 
 [dependencies]
-axum = " 0.7.9"
+axum = "0.8.1"
 tokio = { version = "1.42.0", features = ["full"] }
 tower = "0.5.2"
 tower-http = { version = "0.6.2", features = ["trace"] }
@@ -21,7 +21,7 @@ uuid = { version = "1.7.0", features = ["v4"] }
 reqwest = "0.12.9"
 config = "0.15.4"
 [dependencies.sqlx]
-version = "0.7.4"
+version = "0.8.3"
 default-features = false
 features = [
     "runtime-tokio-rustls",
