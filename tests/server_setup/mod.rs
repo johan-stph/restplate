@@ -1,8 +1,8 @@
 use sqlx::postgres::PgPoolOptions;
 use sqlx::{Connection, Executor, PgConnection, PgPool};
-use template::configuration::{DatabaseSettings, get_configuration};
-use uuid::Uuid;
+use template::configuration::{get_configuration, DatabaseSettings};
 use template::run_server;
+use uuid::Uuid;
 
 pub struct MockApp {
     pub address: String,
@@ -11,7 +11,6 @@ pub struct MockApp {
 }
 
 pub async fn spawn_app_local() -> MockApp {
-
     let local_host = "127.0.0.1";
     let ip_address = format!("{}:0", local_host);
     let tcp_listener = tokio::net::TcpListener::bind(ip_address)

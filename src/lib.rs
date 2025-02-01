@@ -1,6 +1,6 @@
-use axum::Router;
 use axum::routing::get;
 use axum::serve::Serve;
+use axum::Router;
 use sqlx::PgPool;
 use tokio::net::TcpListener;
 use tower_http::trace::TraceLayer;

@@ -15,4 +15,3 @@ async fn health_check_working() {
     assert_eq!(Some(0), response.content_length());
     close_and_delete_db(mock_app).await;
 }
-
