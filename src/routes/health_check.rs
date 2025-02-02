@@ -1,5 +1,15 @@
 use axum::http::StatusCode;
+use axum::Json;
+use serde::Serialize;
 
-pub(crate) async fn health_check() -> StatusCode {
-    StatusCode::OK
+#[derive(Serialize)]
+pub struct Message {
+    message: String
+}
+
+#[tracing::instrument]
+pub(crate) async fn health_check() -> Json<Message> {
+    Json(Message {
+        message: "Hello from backend!".into()
+    })
 }
