@@ -12,6 +12,6 @@ async fn health_check_working() {
         .await
         .expect("Failed to execute request");
     assert!(response.status().is_success());
-    assert_eq!(Some(0), response.content_length());
+    assert_eq!(Some(33), response.content_length());
     close_and_delete_db(mock_app).await;
 }
